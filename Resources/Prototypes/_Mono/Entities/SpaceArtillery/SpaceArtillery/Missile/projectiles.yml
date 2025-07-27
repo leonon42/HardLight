@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Blu
+# SPDX-FileCopyrightText: 2025 Disguised Bear
+# SPDX-FileCopyrightText: 2025 Redrover1760
+# SPDX-FileCopyrightText: 2025 RikuTheKiller
+# SPDX-FileCopyrightText: 2025 core-mene
+# SPDX-FileCopyrightText: 2025 starch
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
 # VESPERA
 
 - type: entity
@@ -25,14 +34,14 @@
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 7
   - type: PointLight
     radius: 3.5
     color: orange
     energy: 0.5
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: DefaultShipGun
     totalIntensity: 75
     intensitySlope: 8
     maxIntensity: 25
@@ -40,11 +49,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 150
+    acceleration: 75
     detectionRange: 300
     scanArc: 70
-    launchSpeed: 300
-    maxSpeed: 360
+    launchSpeed: 150
+    maxSpeed: 180
     trackDelay: 0.3
 
 # ASM-302
@@ -74,14 +83,14 @@
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 7
   - type: PointLight
     radius: 3.5
     color: orange
     energy: 0.5
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: DefaultShipGun
     totalIntensity: 150
     intensitySlope: 10
     maxIntensity: 55
@@ -89,11 +98,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 200
+    acceleration: 100
     detectionRange: 450
     scanArc: 70
-    launchSpeed: 180
-    maxSpeed: 420
+    launchSpeed: 90
+    maxSpeed: 210
     trackDelay: 0.7
 
 # ASM-501
@@ -123,14 +132,14 @@
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 10
+    lifetime: 20
   - type: PointLight
     radius: 5
     color: orange
     energy: 2
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: DefaultShipGun
     maxIntensity: 6000
     intensitySlope: 30
     totalIntensity: 6000
@@ -138,11 +147,11 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 50
+    acceleration: 25
     detectionRange: 300
     scanArc: 50
-    launchSpeed: 50
-    maxSpeed: 60
+    launchSpeed: 25
+    maxSpeed: 30
     trackDelay: 4
 
 # TOVEK
@@ -172,7 +181,7 @@
     requireNoGrid: true
     shape: triangle
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 8.2
   - type: PointLight
     radius: 3.5
     color: orange
@@ -183,7 +192,7 @@
     disableDuration: 5
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: DefaultShipGun
     totalIntensity: 100
     intensitySlope: 10
     maxIntensity: 50
@@ -192,9 +201,9 @@
   - type: MiningGatheringSoft
   - type: MiningGatheringHard
   - type: TargetSeeking
-    acceleration: 80
+    acceleration: 40
     detectionRange: 450
     scanArc: 80
-    launchSpeed: 100
-    maxSpeed: 250
+    launchSpeed: 50
+    maxSpeed: 125
     trackDelay: 1.2

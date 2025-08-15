@@ -280,7 +280,11 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             dungeonBox = dungeonBox.ExtendToContain(tile);
         }
 
-        var stationData = _entManager.GetComponent<StationDataComponent>(Station);
+        if (!_entManager.TryGetComponent<StationDataComponent>(Station, out var stationData))
+        {
+            _sawmill.Warning($"Station {Station} does not have StationDataComponent, skipping ship FTL positioning");
+            return true;
+        }
 
         // Get ship bounding box relative to largest grid coords
         var shuttleUid = _station.GetLargestGrid(stationData);

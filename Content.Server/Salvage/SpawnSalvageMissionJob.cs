@@ -309,9 +309,9 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
             if (playerShip.HasValue && _entManager.TryGetComponent<ShuttleComponent>(playerShip.Value, out var shuttleComp))
             {
                 // Use center of expedition map as destination
-                var coords = new Vector2(0f, 0f);
+                var ftlCoords = new Vector2(0f, 0f);
                 _sawmill.Debug($"[SalvageMission] FTL: Calling FTLToCoordinates for player ship {playerShip.Value}");
-                _shuttle.FTLToCoordinates(playerShip.Value, shuttleComp, new EntityCoordinates(mapUid, coords), 0f, 5.5f, _salvage.TravelTime);
+                _shuttle.FTLToCoordinates(playerShip.Value, shuttleComp, new EntityCoordinates(mapUid, ftlCoords), 0f, 5.5f, _salvage.TravelTime);
             }
             else
             {

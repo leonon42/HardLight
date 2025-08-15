@@ -164,9 +164,13 @@ public sealed partial class SalvageSystem
 
     private void OnFTLStarted(ref FTLStartedEvent ev)
     {
-        if (!TryComp<SalvageExpeditionComponent>(ev.FromMapUid, out var expedition) ||
-            FindExpeditionDataForStation(expedition.Station) is not var expeditionData ||
-            expeditionData == null)
+        if (!TryComp<SalvageExpeditionComponent>(ev.FromMapUid, out var expedition))
+        {
+            return;
+        }
+        
+        var expeditionData = FindExpeditionDataForStation(expedition.Station);
+        if (expeditionData == null)
         {
             return;
         }

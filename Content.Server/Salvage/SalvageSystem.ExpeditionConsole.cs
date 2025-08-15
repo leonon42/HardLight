@@ -69,7 +69,7 @@ public sealed partial class SalvageSystem
         {
             PlayDenySound((uid, component));
             _popupSystem.PopupEntity(Loc.GetString("shuttle-ftl-too-many"), uid, PopupType.MediumCaution);
-            UpdateConsoles((gridEntity, data));
+            UpdateConsoles((uid, data));
             return;
         }
         // End Frontier
@@ -88,7 +88,7 @@ public sealed partial class SalvageSystem
             {
                 PlayDenySound((uid, component));
                 _popupSystem.PopupEntity(Loc.GetString("shuttle-ftl-invalid"), uid, PopupType.MediumCaution);
-                UpdateConsoles((gridEntity, data));
+                UpdateConsoles((uid, data));
                 return;
             }
 
@@ -96,7 +96,7 @@ public sealed partial class SalvageSystem
             {
                 PlayDenySound((uid, component));
                 _popupSystem.PopupEntity(Loc.GetString("shuttle-ftl-recharge"), uid, PopupType.MediumCaution);
-                UpdateConsoles((gridEntity, data));
+                UpdateConsoles((uid, data));
                 return;
             }
 
@@ -116,7 +116,7 @@ public sealed partial class SalvageSystem
 
                 PlayDenySound((uid, component));
                 _popupSystem.PopupEntity(Loc.GetString("shuttle-ftl-proximity"), uid, PopupType.MediumCaution);
-                UpdateConsoles((gridEntity, data));
+                UpdateConsoles((uid, data));
                 return;
             }
         }
@@ -141,7 +141,7 @@ public sealed partial class SalvageSystem
     // _labelSystem.Label(cdUid, GetFTLName(_prototypeManager.Index<LocalizedDatasetPrototype>("NamesBorer"), missionparams.Seed)); // Frontier: no disc
     // _audio.PlayPvs(component.PrintSound, uid); // Frontier: no disc
 
-    UpdateConsoles((gridEntity, data));
+    UpdateConsoles((uid, data));
     }
 
     // Frontier: early expedition end
@@ -157,7 +157,7 @@ public sealed partial class SalvageSystem
         {
             PlayDenySound((entity, component));
             _popupSystem.PopupEntity(Loc.GetString("salvage-expedition-shuttle-not-found"), entity, PopupType.MediumCaution);
-            UpdateConsoles((gridEntity, data));
+            UpdateConsoles((uid, data));
             return;
         }
 
@@ -189,14 +189,14 @@ public sealed partial class SalvageSystem
             {
                 PlayDenySound((entity, component));
                 _popupSystem.PopupEntity(Loc.GetString("salvage-expedition-not-everyone-aboard", ("target", uid)), entity, PopupType.MediumCaution);
-                UpdateConsoles((gridEntity, data));
+                UpdateConsoles((uid, data));
                 return;
             }
         }
         // End SalvageSystem.Runner:OnConsoleFTLAttempt
 
     data.CanFinish = false;
-    UpdateConsoles((gridEntity, data));
+    UpdateConsoles((uid, data));
 
         var map = Transform(entity).MapUid;
 
@@ -219,16 +219,19 @@ public sealed partial class SalvageSystem
 
     private void OnSalvageConsoleInit(Entity<SalvageExpeditionConsoleComponent> console, ref ComponentInit args)
     {
-    // Always ensure SalvageExpeditionDataComponent is present and missions are generated
+    // Only initialize expedition data if it doesn't exist
     var gridEntity = console.Owner;
-    var data = EnsureComp<SalvageExpeditionDataComponent>(gridEntity);
-    data.ActiveMission = 0;
-    data.Cooldown = false;
-    data.CanFinish = false;
-    data.NextOffer = _timing.CurTime;
-    data.CooldownTime = TimeSpan.Zero;
-    data.Missions.Clear();
-    _salvage.GenerateMissions(data);
+    if (!HasComp<SalvageExpeditionDataComponent>(gridEntity))
+    {
+        var data = EnsureComp<SalvageExpeditionDataComponent>(gridEntity);
+        data.ActiveMission = 0;
+        data.Cooldown = false;
+        data.CanFinish = false;
+        data.NextOffer = _timing.CurTime;
+        data.CooldownTime = TimeSpan.Zero;
+        data.Missions.Clear();
+        _salvage.GenerateMissions(data);
+    }
     UpdateConsole(console);
     }
 

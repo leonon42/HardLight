@@ -90,6 +90,20 @@ namespace Content.Server.Salvage
             UpdateMagnet();
             UpdateRunner();
         }
+
+        /// <summary>
+        /// Finds the expedition data component for a given station by searching grids that belong to that station.
+        /// </summary>
+        private Entity<SalvageExpeditionDataComponent>? FindExpeditionDataForStation(EntityUid station)
+        {
+            var query = EntityQueryEnumerator<SalvageExpeditionDataComponent, StationMemberComponent>();
+            while (query.MoveNext(out var uid, out var data, out var member))
+            {
+                if (member.Station == station)
+                    return (uid, data);
+            }
+            return null;
+        }
     }
 }
 

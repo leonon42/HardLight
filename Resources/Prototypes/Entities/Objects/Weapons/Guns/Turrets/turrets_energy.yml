@@ -224,10 +224,10 @@
   - type: DeviceNetwork
     receiveFrequencyId: TurretControl
     transmitFrequencyId: Turret
-    - type: NpcFactionMember
-      factions:
-        - NanoTrasen
-    - type: Sprite
+  - type: NpcFactionMember
+    factions:
+      - NanoTrasen
+  - type: Sprite
       sprite: Structures/Decoration/crystal.rsi
       color: "#32a8a0"
       noRot: true

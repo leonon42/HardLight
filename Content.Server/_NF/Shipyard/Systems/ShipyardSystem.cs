@@ -1,6 +1,8 @@
 using Content.Server.Shuttles.Systems;
 using Content.Server.Shuttles.Components;
+using Content.Shared.Shuttles.Components;
 using Content.Server.Station.Components;
+using Content.Server._NF.StationEvents.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._NF.Shipyard.Components;
@@ -821,7 +823,7 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
             _sawmill.Info("Step 3 complete: Shuttle deed and database systems set up");
 
             // STEP 4: Update player ID card with deed
-            var idUpdateSuccess = await LoadStep4_UpdatePlayerIdCard(idCardUid, loadedShipUid.Value, shipName);
+            var idUpdateSuccess = await LoadStep4_UpdatePlayerIdCard(idCardUid, loadedShipUid.Value, shipName, playerUserId);
             if (!idUpdateSuccess)
             {
                 _sawmill.Error("Step 4 failed: Could not update player ID card with deed");
@@ -881,17 +883,31 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     {
         try
         {
-            _sawmill.Info("Step 3: Setting up shuttle deed and database systems");
+            _sawmill.Info("Step 3: Setting up shuttle deed using purchase flow patterns");
 
-            // Note: The ship itself doesn't need a deed component - that goes on the player's ID card
-            // The ship should already have any necessary components from the YAML data
-            // This step is for any additional database/ownership setup if needed
+            // Get the player name in the exact same format as purchases
+            string? shuttleOwner = null;
+            if (_playerManager.TryGetPlayerData(new NetUserId(Guid.Parse(playerUserId)), out var playerData))
+            {
+                shuttleOwner = playerData.UserName?.Trim();
+            }
 
-            _sawmill.Info($"Ship {shipUid} with name '{shipName}' ready for deed assignment to player ID");
+            if (string.IsNullOrEmpty(shuttleOwner))
+            {
+                _sawmill.Error($"Could not get player name for userId {playerUserId}");
+                return false;
+            }
 
-            // Additional database setup could go here if needed
-            // For now, we just ensure the ship is ready for ownership assignment
+            // Add deed component to the ship using exact purchase flow pattern
+            var shipDeedComponent = EnsureComp<ShuttleDeedComponent>(shipUid);
+            AssignShuttleDeedProperties((shipUid, shipDeedComponent), shipUid, shipName, shuttleOwner, true);
 
+            _sawmill.Info($"Added ShuttleDeedComponent to ship {shipUid} using purchase flow patterns");
+
+            // Ships already have IFF from YAML templates - don't manually add
+            // LinkedLifecycleGridParentComponent already added by purchase systems - don't duplicate
+
+            _sawmill.Info($"Ship {shipUid} with name '{shipName}' configured for player '{shuttleOwner}' ownership");
             return true;
         }
         catch (Exception ex)
@@ -904,20 +920,30 @@ public sealed partial class ShipyardSystem : SharedShipyardSystem
     /// <summary>
     /// STEP 4: Update player ID card with shuttle deed
     /// </summary>
-    private async Task<bool> LoadStep4_UpdatePlayerIdCard(EntityUid idCardUid, EntityUid shipUid, string shipName)
+    private async Task<bool> LoadStep4_UpdatePlayerIdCard(EntityUid idCardUid, EntityUid shipUid, string shipName, string playerUserId)
     {
         try
         {
-            _sawmill.Info("Step 4: Updating player ID card with shuttle deed");
+            _sawmill.Info("Step 4: Updating player ID card with shuttle deed using purchase flow patterns");
 
-            // Ensure the ID card has a deed component (may already exist)
+            // Get the player name in the exact same format as purchases
+            string? shuttleOwner = null;
+            if (_playerManager.TryGetPlayerData(new NetUserId(Guid.Parse(playerUserId)), out var playerData))
+            {
+                shuttleOwner = playerData.UserName?.Trim();
+            }
+
+            if (string.IsNullOrEmpty(shuttleOwner))
+            {
+                _sawmill.Error($"Could not get player name for userId {playerUserId}");
+                return false;
+            }
+
+            // Use exact same deed assignment pattern as purchases
             var idDeedComponent = EnsureComp<ShuttleDeedComponent>(idCardUid);
-            idDeedComponent.ShuttleName = shipName;
-            idDeedComponent.ShuttleNameSuffix = ""; // No suffix for loaded ships
-            idDeedComponent.ShuttleUid = GetNetEntity(shipUid);
-            idDeedComponent.PurchasedWithVoucher = true; // Mark as loaded
+            AssignShuttleDeedProperties((idCardUid, idDeedComponent), shipUid, shipName, shuttleOwner, true);
 
-            _sawmill.Info($"Updated ShuttleDeedComponent on ID card {idCardUid} for ship '{shipName}' ({shipUid})");
+            _sawmill.Info($"Updated ShuttleDeedComponent on ID card {idCardUid} for ship '{shipName}' using purchase flow patterns");
 
             return true;
         }

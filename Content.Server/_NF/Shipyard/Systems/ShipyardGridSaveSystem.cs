@@ -16,6 +16,9 @@ using Content.Shared.VendingMachines;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Access.Components;
+using Content.Server.StationRecords;
+using Content.Shared.Storage.Components;
+using Content.Shared.Chemistry.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -307,16 +310,34 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
 
             var entitiesRemoved = 0;
             var containersEmptied = 0;
+            var componentsRemoved = 0;
 
-            // First pass: Empty all containers
+            // First pass: Selectively empty containers - preserve bluespace stash contents
             foreach (var entity in allEntities.ToList())
             {
                 if (!_entityManager.EntityExists(entity))
                     continue;
 
-                // Empty any containers by deleting their contents
+                // Remove problematic components that cause serialization issues
+                if (_entityManager.RemoveComponent<StationRecordsComponent>(entity))
+                {
+                    componentsRemoved++;
+                    _sawmill.Info($"Removed StationRecordsComponent from entity {entity}");
+                }
+
+                // Handle containers - preserve stash contents, empty others
                 if (_entityManager.TryGetComponent<ContainerManagerComponent>(entity, out var containerManager))
                 {
+                    // Check if this is a bluespace stash structure that should preserve contents
+                    bool isBlueSpaceStash = IsBlueSpaceStashStructure(entity);
+                    
+                    if (isBlueSpaceStash)
+                    {
+                        _sawmill.Info($"Preserving contents of bluespace stash structure {entity}");
+                        continue; // Skip emptying this container
+                    }
+
+                    // For all other containers: empty them (remove loose items)
                     foreach (var container in containerManager.Containers.Values)
                     {
                         var containedEntities = container.ContainedEntities.ToList();
@@ -363,7 +384,7 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                 }
             }
 
-            // Delete freefloating entities
+            // Delete freefloating entities with enhanced error handling
             foreach (var entity in freefloatingEntities)
             {
                 try
@@ -374,13 +395,18 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                         entitiesRemoved++;
                     }
                 }
+                catch (NullReferenceException ex)
+                {
+                    // Handle gas canister null reference errors specifically
+                    _sawmill.Warning($"Failed to delete freefloating entity {entity} due to null reference (likely gas canister IoC issue): {ex.Message}");
+                }
                 catch (Exception ex)
                 {
                     _sawmill.Warning($"Failed to delete freefloating entity {entity}: {ex}");
                 }
             }
 
-            _sawmill.Info($"Step 2 complete: Emptied {containersEmptied} containers, removed {entitiesRemoved} entities");
+            _sawmill.Info($"Step 2 complete: Emptied {containersEmptied} containers, removed {entitiesRemoved} entities, removed {componentsRemoved} components");
             return true;
         }
         catch (Exception ex)
@@ -431,13 +457,43 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                 }
 
                 // Remove problematic components from remaining entities
+                
+                // Remove session-specific components
+                if (_entityManager.RemoveComponent<ActorComponent>(entity))
+                    componentsRemoved++;
+                if (_entityManager.RemoveComponent<EyeComponent>(entity))
+                    componentsRemoved++;
 
-                // Note: Removed PhysicsComponent deletion that was causing collision issues in loaded ships
-                // PhysicsComponent and FixturesComponent are needed for proper collision detection
+                // Smart physics preservation - reset runtime state but keep collision
+                if (_entityManager.TryGetComponent<PhysicsComponent>(entity, out var physics))
+                {
+                    // Reset problematic runtime physics state that causes serialization issues
+                    // Keep the component for collision detection but clear runtime data
+                    physics.LinearVelocity = Vector2.Zero;
+                    physics.AngularVelocity = 0f;
+                    // Don't remove the component - just reset problematic fields
+                }
 
-                // Remove atmospheric components that hold runtime state
+                // Preserve reagent containers in machines - DON'T empty them for machine functionality
+                bool hasReagentContainer = _entityManager.HasComponent<ReagentContainerComponent>(entity);
+                if (hasReagentContainer)
+                {
+                    _sawmill.Info($"Preserving reagent container in machine entity {entity}");
+                    // Don't modify reagent containers - machines need them to function after load
+                }
 
-                // Reset power components to clean state
+                // Remove atmospheric components that hold problematic runtime state
+                if (_entityManager.RemoveComponent<AtmosDeviceComponent>(entity))
+                    componentsRemoved++;
+
+                // Reset power components to clean state through proper systems
+                if (_entityManager.TryGetComponent<BatteryComponent>(entity, out var battery))
+                {
+                    if (_entitySystemManager.TryGetEntitySystem<BatterySystem>(out var batterySystem))
+                    {
+                        batterySystem.SetCharge(entity, battery.MaxCharge);
+                    }
+                }
             }
 
             _sawmill.Info($"Step 3 complete: Removed {structuresRemoved} problematic structures, cleaned {componentsRemoved} components");
@@ -800,6 +856,28 @@ public sealed class ShipyardGridSaveSystem : EntitySystem
                 break;
             }
         }
+    }
+
+    /// <summary>
+    /// Determines if an entity is a bluespace stash structure that should preserve its contents
+    /// </summary>
+    private bool IsBlueSpaceStashStructure(EntityUid entity)
+    {
+        // Check if entity has Storage component and is a bluespace stash
+        if (!_entityManager.TryGetComponent<StorageComponent>(entity, out var storage))
+            return false;
+
+        // Check if the entity prototype ID contains "bluespacestash"
+        if (_entityManager.TryGetComponent<MetaDataComponent>(entity, out var metaData))
+        {
+            var prototypeId = metaData.EntityPrototype?.ID;
+            if (prototypeId != null && prototypeId.Contains("bluespacestash"))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

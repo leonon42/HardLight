@@ -165,8 +165,6 @@ psionic-familiar-cant-attack-master = I am bound by my Master, I cannot harm the
 psionic-familiar-despawn-text = {CAPITALIZE($entity)} returns from whence it came!
 ghost-role-information-familiar-name = Psionic Familiar
 ghost-role-information-familiar-description = An interdimensional creature bound to the will of a Psion.
-ghost-role-information-familiar-rules =
-    Obey the one who summoned you. Do not act against the interests of your Master. You will die for your Master if it is necessary.
 
 # Assay Power
 assay-begin = The air around {CAPITALIZE($entity)} begins to shimmer faintly

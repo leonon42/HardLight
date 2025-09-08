@@ -1505,3 +1505,6 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
+      - !type:AdjustReagent
+        reagent: Nocturine
+        amount: -3.0

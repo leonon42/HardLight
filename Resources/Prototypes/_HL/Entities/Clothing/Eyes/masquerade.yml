@@ -45,7 +45,7 @@
     sprite: _HL/Clothing/Eyes/masquerade.rsi
   - type: VoiceOverride
     nameOverride: Unknown
-    speechVerbOverride: None
+    speechVerbOverride: Default
   - type: IdentityBlocker
 
 - type: entity

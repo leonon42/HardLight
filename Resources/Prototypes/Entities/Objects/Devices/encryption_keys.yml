@@ -248,7 +248,7 @@
     - state: ai_label
 
 - type: entity
-  parent: [ EncryptionKey, BaseC3SyndicateContrabandNoValue ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContrabandNoValue
+  parent: [ EncryptionKey, BaseC2ContrabandUnredeemable ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContrabandNoValue
   id: EncryptionKeyBinarySyndicate
   name: binary translator key
   description: A syndicate encryption key that translates binary signals used by silicons.

@@ -19,6 +19,7 @@
     - MindRoleGhostRoleTeamAntagonist
     raffle:
       settings: default
+  - type: BankAccount
   - type: GhostTakeoverAvailable
   - type: HTN
     rootTask:

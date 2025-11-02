@@ -27,6 +27,9 @@
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: InteractionOutline
   - type: Physics
+  - type: Anchorable
+    flags:
+    - Unanchorable 
   - type: Fixtures
     fixtures:
       fix1:

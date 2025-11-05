@@ -11,6 +11,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly IOverlayManager _overlayMgr = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     private StationAiOverlay? _overlay;
 

@@ -812,6 +812,7 @@
     emagStaticPacks:
     # - ClothingColComm # Frontier
     - ClothingSyndie
+    - ClothingNT # HL
   - type: MaterialStorage
     whitelist:
       tags:

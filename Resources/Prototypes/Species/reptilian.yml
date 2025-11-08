@@ -21,12 +21,12 @@
     Snout: MobHumanoidAnyMarking
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
-    Genital: MobHumanoidAnyMarking
-    Penis: MobHumanoidAnyMarking
     Chest: MobReptilianTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
+    Genital: MobHumanoidAnyMarking
+    Penis: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobReptilianLArm
     RArm: MobReptilianRArm

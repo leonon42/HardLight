@@ -1,22 +1,22 @@
-using Content.Server.CM14.Xenos.Evolution;
+using Robust.Shared.GameStates;
 
-namespace Content.Server.CM14.Xenos.Evolution;
+namespace Content.Shared.CM14.Xenos.Evolution;
 
 /// <summary>
 /// Marks an NPC xeno to automatically evolve when their evolution action is ready.
 /// </summary>
-[RegisterComponent, Access(typeof(XenoAIAutoEvolveSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class XenoAIAutoEvolveComponent : Component
 {
     /// <summary>
     /// How often to check if evolution is ready (in seconds).
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float CheckInterval = 30f;
 
     /// <summary>
     /// Time when the next check should occur.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan NextCheckTime;
 }

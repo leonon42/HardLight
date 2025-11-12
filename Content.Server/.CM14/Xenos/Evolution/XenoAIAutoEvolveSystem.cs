@@ -24,6 +24,7 @@ public sealed class XenoAIAutoEvolveSystem : EntitySystem
     private void OnMapInit(Entity<XenoAIAutoEvolveComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextCheckTime = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.CheckInterval);
+        Dirty(ent);
     }
 
     public override void Update(float frameTime)
@@ -44,6 +45,7 @@ public sealed class XenoAIAutoEvolveSystem : EntitySystem
                 continue;
 
             autoEvolve.NextCheckTime = curTime + TimeSpan.FromSeconds(autoEvolve.CheckInterval);
+            Dirty(uid, autoEvolve);
 
             // Skip if this xeno can't evolve
             if (xeno.EvolvesTo.Count == 0)

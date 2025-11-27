@@ -1,13 +1,13 @@
 - type: entity
   id: ClothingBackpackTactical
   name: tactical pack
-  parent: [ NFClothingBackpack, RecyclableItemClothDurable ]
+  parent: [ NFClothingDuffel, RecyclableItemClothDurable ]
   description: A tactical pack for your tactical needs
   components:
   - type: Sprite
     sprite: _HL/Clothing/Back/tacticalpack.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.25
+    damageCoefficient: 0.2
   - type: Storage
     maxItemSize: Huge
     grid:
@@ -29,7 +29,7 @@
   - type: Sprite
     sprite: _HL/Clothing/Back/explorerpack.rsi
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.4
   - type:
   - type: Storage
     maxItemSize: Huge

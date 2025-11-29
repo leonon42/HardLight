@@ -1,0 +1,15 @@
+- type: entity
+  id: OrganChitinidStomach
+  parent: OrganHumanStomach
+  name: chitinid stomach
+  description: A specialized stomach adapted for chitinid digestion.
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Human, Animal]
+    groups:
+    - id: Food
+    - id: Drink

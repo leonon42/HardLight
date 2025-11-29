@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: Objects/Misc/books.rsi
     layers:
-    - state: book5
+    - state: book_icon
   - type: HyperlinkBook
     url: https://frontierstation.wiki.gg/wiki/Space_Law
   - type: Tag

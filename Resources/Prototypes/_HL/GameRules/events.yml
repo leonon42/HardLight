@@ -101,7 +101,7 @@
     - id: SleeperAgents
     - id: SleeperRevolutionaries
     - id: ZombieOutbreak
-    - id: LoneOpsSpawn
+    #- id: LoneOpsSpawn
     #- id: WizardSpawn
     - id: LoneOpsSpawn
     - id: UnknownShuttleManOWar

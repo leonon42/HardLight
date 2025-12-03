@@ -7,6 +7,7 @@ using Content.Shared.Dataset;
 using Content.Shared.Gateway;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
+using Content.Shared.Shuttles.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
@@ -150,7 +151,22 @@ public sealed class DockingArmGeneratorSystem : EntitySystem
     private void OnDockingArmOpen(Entity<DockingArmDestinationComponent> ent, ref GatewayOpenEvent args)
     {
         Log.Info($"OnDockingArmOpen called for {ToPrettyString(ent)} - Source Gateway: {ToPrettyString(args.MapUid)}");
-
+        
+        // Check if we've hit the maximum dock limit
+        if (ent.Comp.Generator != null && TryComp(ent.Comp.Generator, out DockingArmGeneratorComponent? genComp))
+        {
+            // Clean up deleted docks from the list
+            genComp.SpawnedDocks.RemoveAll(dock => !Exists(dock));
+            
+            if (genComp.SpawnedDocks.Count >= genComp.MaxDocks)
+            {
+                Log.Warning($"Cannot spawn dock - maximum limit of {genComp.MaxDocks} docks reached");
+                if (args.MapUid != null)
+                    _popup.PopupEntity(Loc.GetString("gateway-docking-arm-max-limit"), args.MapUid);
+                return;
+            }
+        }
+        
         // Select a random grid path if not specified
         string gridPath = ent.Comp.GridPath;
         if (string.IsNullOrEmpty(gridPath) && ent.Comp.Generator != null && TryComp(ent.Comp.Generator, out DockingArmGeneratorComponent? generatorComp))
@@ -167,9 +183,7 @@ public sealed class DockingArmGeneratorSystem : EntitySystem
 
         // Load the docking arm grid
         SpawnDockingArmGrid(ent, args.MapUid, gridPath);
-    }
-
-    /// <summary>
+    }    /// <summary>
     /// Attempts to find a clear spawn location near the gateway.
     /// Checks multiple positions in a spiral pattern until a clear spot is found.
     /// </summary>
@@ -266,8 +280,24 @@ public sealed class DockingArmGeneratorSystem : EntitySystem
         Log.Info($"Attempting to load grid from {gridPath} at cleared position {spawnPosition}...");
         if (_loader.TryLoadGrid(targetMapId, new ResPath(gridPath), out var dockingArmGrid, offset: spawnPosition.Floored()))
         {
-            var dockName = $"Dock {DateTime.Now:HHmmss}";
+            // Get the generator component to access and increment the dock counter
+            var dockNumber = 1;
+            if (ent.Comp.Generator != null && TryComp<DockingArmGeneratorComponent>(ent.Comp.Generator, out var genComp))
+            {
+                dockNumber = genComp.DockCounter++;
+            }
+
+            var dockName = $"Dock {dockNumber}";
             _metadata.SetEntityName(dockingArmGrid.Value, dockName);
+
+            // Add IFF component so the dock shows up on mass scanners
+            EnsureComp<IFFComponent>(dockingArmGrid.Value);
+            
+            // Track this dock in the generator component
+            if (ent.Comp.Generator != null && TryComp<DockingArmGeneratorComponent>(ent.Comp.Generator, out genComp))
+            {
+                genComp.SpawnedDocks.Add(dockingArmGrid.Value);
+            }
 
             // Rotate the dock to face toward the gateway/station (perpendicular to spawn direction)
             // Add 90 degrees (π/2) to make it face tangentially, forming a ring pattern
@@ -281,7 +311,7 @@ public sealed class DockingArmGeneratorSystem : EntitySystem
 
                 Log.Info($"Rotated dock to {finalRotation.Degrees}° (perpendicular to gateway direction, adjusted for dock orientation)");
             }
-            
+
             // Update all gateway UIs so the new dock appears as a destination
             _gateway.UpdateAllGateways();
 

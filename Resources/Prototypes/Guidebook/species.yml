@@ -31,6 +31,7 @@
     - Resomi
     - Protogen # Monolith
     - Avali
+    - Feroxi
 
 - type: guideEntry
   id: Arachnid
@@ -93,3 +94,5 @@
   id: Protogen
   name: species-name-protogen
   text: "/ServerInfo/Guidebook/Mobs/Protogen.xml"
+
+

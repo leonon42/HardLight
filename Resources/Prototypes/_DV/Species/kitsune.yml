@@ -6,7 +6,7 @@
   sprites: MobHumanSprites
   markingLimits: MobKitsuneMarkingLimits
   dollPrototype: MobKitsuneDummy
-  skinColoration: HumanToned
+  skinColoration: Hues
 
 - type: markingPoints
   id: MobKitsuneMarkingLimits

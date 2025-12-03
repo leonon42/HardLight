@@ -74,7 +74,7 @@ thaven-mood-happy-bad-name = Never Trust A Smile
 thaven-mood-happy-bad-desc = Cheerfulness indicates untrustworthiness.
 
 thaven-mood-only-pills-name = Needles Are Scary
-thaven-mood-only-pills-desc = You only accept medication in the form of pills.
+thaven-mood-only-pills-desc = You cannot accept medication in the form of injected chemicals.
 
 thaven-mood-avoid-puddles-name = Don't Get Your Feet Wet
 thaven-mood-avoid-puddles-desc = It is undignified and unsanitary to walk over spilled liquids. You should avoid it, even if it costs you your life.

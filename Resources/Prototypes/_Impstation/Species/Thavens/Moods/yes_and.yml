@@ -45,7 +45,7 @@
   - ItemGood
   - Hypochondriac
   - ImposterSyndrome
-  - YesMan
+  #- YesMan - hardlight. consent is important!
   - Centrist
   - PublicSector
   - SpeechRestriction
@@ -454,6 +454,8 @@
   id: PetRock
   moodName: thaven-mood-petrock-name
   moodDesc: thaven-mood-petrock-desc
+  conflicts:
+  - FuckRock
 
 # [CLOTHING ITEM] is so in right now! You must wear them to show off your style!
 - type: thavenMood
@@ -464,6 +466,7 @@
     clothes: MoodClothes
   conflicts:
   - HardsuitsBad
+  - BirthdaySuit
 
 
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.

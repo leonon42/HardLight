@@ -42,7 +42,7 @@
   - TunnelDweller
   - PrankWar
   - StarPeople
-  - TheSimsShared
+  - TheSimsShared # i contemplated commenting this out but given that i am into incest and have met others into incest here, i won't
   - ThirstQuencher
 #   - OutOfFashion
 #   - InFashion
@@ -192,8 +192,8 @@
   - FoodRestrict
   moodVars:
     edible: MoodEdibles
-    
-# Thirst Quencher: [DRINK] is a traditional Thaven beverage. All Thaven aboard the station should make as many as possible and organize a 
+
+# Thirst Quencher: [DRINK] is a traditional Thaven beverage. All Thaven aboard the station should make as many as possible and organize a
 - type: thavenMood
   id: ThirstQuencher
   moodName: thaven-mood-thirstquencher-name
@@ -212,7 +212,7 @@
   moodVars:
     day: MoodHolidays
 
-# The station is a feudal realm. The captain is king, the department heads nobility, and the rest of the station knights, servants, or peasants.    
+# The station is a feudal realm. The captain is king, the department heads nobility, and the rest of the station knights, servants, or peasants.
 - type: thavenMood
   id: RoyalRealm
   moodName: thaven-mood-royalrealm-name
@@ -247,7 +247,7 @@
   id: PrankWar
   moodName: thaven-mood-prankwar-name
   moodDesc: thaven-mood-prankwar-desc
-  
+
 # Like their carp-kin, Thaven are beings of the stellar sea. You feel drawn to space, whether to explore, discover, or construct something new.
 - type: thavenMood
   id: StarPeople

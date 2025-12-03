@@ -89,6 +89,26 @@
   - Dihydrogen Monoxide
 
 - type: dataset
+  id: MoodHornyItems
+  values:
+  - Dildos
+  - Vibrators
+  - Fleshlights
+  - Whips
+  - Handcuffs
+  - Stun Batons
+  - Collars
+  - Blindfolds
+  - Muzzles
+  - Plushies
+  - Figurines
+  - Vaguely Phallic Objects
+  - Tables
+  - Chairs
+  - Drinks
+  - Rocks
+
+- type: dataset
   id: MoodEdibles
   values:
   - Copypasta

@@ -128,8 +128,6 @@
       map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Machine
-    board: AssortedForgeParts
   - type: MaterialStorage
     whitelist:
       tags:
@@ -147,3 +145,5 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: Machine
+    board: AssortedForgeParts

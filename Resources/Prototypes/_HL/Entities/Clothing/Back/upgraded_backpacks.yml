@@ -30,7 +30,6 @@
     sprite: _HL/Clothing/Back/explorerpack.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.4
-  - type:
   - type: Storage
     maxItemSize: Huge
     grid:

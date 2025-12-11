@@ -311,7 +311,15 @@
         hard: false
         mask:
         - Opaque # Mono
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 33
@@ -350,7 +358,15 @@
         hard: false
         mask:
         - Opaque # Mono
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 1
@@ -1077,7 +1093,15 @@
         hard: false
         mask:
         - Opaque # Mono
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Ammo
   - type: StaminaDamageOnCollide
     damage: 15
@@ -1119,7 +1143,15 @@
         hard: false
         mask:
         - Opaque # Mono
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Ammo
 
 - type: entity
@@ -1227,7 +1259,15 @@
         hard: false
         mask:
         - Opaque # Mono
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
@@ -1302,7 +1342,15 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Projectile
     impactEffect: BulletImpactEffectFlamer
     damage:
@@ -1375,7 +1423,15 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Projectile
     impactEffect: BulletImpactEffectRedDisabler
     damage:

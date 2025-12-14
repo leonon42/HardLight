@@ -54,7 +54,7 @@ public abstract class SharedConstructorSystem : EntitySystem
 
         ent.Comp.Construction = args.Id;
         Dirty(ent);
-        _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(args.Actor):user} set {ToPrettyString(ent):target} construction to {args.Id}");
+        //_adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(args.Actor):user} set {ToPrettyString(ent):target} construction to {args.Id}");
     }
 
     public EntityCoordinates OutputPosition(EntityUid uid)

@@ -309,7 +309,7 @@
   id: FeroxiHeadStripesTiger
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-head-stripes-tiger
@@ -318,7 +318,7 @@
   id: FeroxiTorsoStripesBlitz
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-torso-stripes-blitz
@@ -327,7 +327,7 @@
   id: FeroxiTorsoCountershadingF
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-torso-countershading-f
@@ -336,7 +336,7 @@
   id: FeroxiTorsoCountershadingM
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-torso-countershading-m
@@ -345,7 +345,7 @@
   id: FeroxiTorsoStripesTiger
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-torso-stripes-tiger
@@ -355,7 +355,7 @@
   id: FeroxiLeftLegStripesBlitz
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-left-leg-stripes-blitz
@@ -364,7 +364,7 @@
   id: FeroxiRightLegStripesBlitz
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
    - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
      state: feroxi-right-leg-stripes-blitz
@@ -373,7 +373,7 @@
   id: FeroxiLeftLegStripesTiger
   bodyPart: LLeg
   markingCategory: Legs
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-left-leg-stripes-tiger
@@ -382,7 +382,7 @@
   id: FeroxiRightLegStripesTiger
   bodyPart: RLeg
   markingCategory: Legs
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-right-leg-stripes-tiger
@@ -392,7 +392,7 @@
   id: FeroxiLeftArmStripesBlitz
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-left-arm-stripes-blitz
@@ -401,7 +401,7 @@
   id: FeroxiRightArmStripesBlitz
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-right-arm-stripes-blitz
@@ -410,7 +410,7 @@
   id: FeroxiLeftArmStripesTiger
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-left-arm-stripes-tiger
@@ -419,7 +419,7 @@
   id: FeroxiRightArmStripesTiger
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
+  speciesRestriction: [Skrell, Thaven,Dwarf, Diona, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Rodentia, Goblin, Sheleg, IPC, Feroxi, Moth, Arachnid, Kitsune, Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Feroxi/body_markings.rsi
     state: feroxi-right-arm-stripes-tiger

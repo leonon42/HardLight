@@ -3,7 +3,6 @@
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
   forcedColoring: true
-  RMCFollowSkinColor: false
   speciesRestriction: [Human, Dwarf, Felinid, Arachnid, Reptilian, Diona, Moth, SlimePerson, Avali, Vulpkanin, Rodentia, Feroxi, Skrell]
   sprites:
   - sprite: _RMC14/Mobs/Customization/underwear.rsi
@@ -14,7 +13,7 @@
   bodyPart: UndergarmentBottom
   markingCategory: UndergarmentBottom
   forcedColoring: true
-  RMCFollowSkinColor: false
+  # RMCFollowSkinColor: false (removed, not a valid field)
   speciesRestriction: [Human, Dwarf, Felinid, Arachnid, Reptilian, Diona, Moth, SlimePerson, Avali, Vulpkanin, Rodentia, Feroxi, Skrell]
   sprites:
   - sprite: _RMC14/Mobs/Customization/underwear.rsi

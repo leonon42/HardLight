@@ -30,7 +30,7 @@
   - type: Hunger
   - type: Icon
     sprite: _RMC14/Mobs/Skrells/parts.rsi
-    state: full
+    state: head_m
   - type: Thirst
     baseDecayRate: 0.2
   - type: Carriable
@@ -47,7 +47,6 @@
         Blunt: 5
   - type: Perishable
   - type: Damageable
-    damageModifierSet: Skrell
   - type: TypingIndicator
     proto: feroxi
   - type: Internals
@@ -73,9 +72,9 @@
     allowedEmotes: [ 'RMCSkrellPeep', 'RMCSkrellAnger', 'RMCSkrellTrill', 'RMCSkrellWarble' ]
   - type: Vocal
     sounds:
-      Male: RMCMaleSkrell
-      Unsexed: RMCMaleSkrell
-      Female: RMCFemaleSkrell
+      Male: MaleHuman
+      Unsexed: FemaleHuman
+      Female: FemaleHuman
   - type: Barotrauma
     damage:
       types:

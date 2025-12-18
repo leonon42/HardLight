@@ -1285,21 +1285,21 @@
 
 - type: entity
   parent: VendingMachineBoozeFlatpack
-  id: VendingMachineTankDisserEngineeringFlatpack
+  id: VendingMachineTankDispenserEngineeringFlatpack
   name: engineering tank dispenser flatpack
   description: A flatpack used for constructing an engineering tank dispenser vendomat.
   components:
   - type: Flatpack
-    entity: VendingMachineTankDisserEngineering
+    entity: VendingMachineTankDispenserEngineering
 
 - type: entity
   parent: VendingMachineBoozeFlatpack
-  id: VendingMachineTankDisserEVAFlatpack
+  id: VendingMachineTankDispenserEVAFlatpack
   name: EVA tank dispenser flatpack
   description: A flatpack used for constructing an EVA tank dispenser vendomat.
   components:
   - type: Flatpack
-    entity: VendingMachineTankDisserEVA
+    entity: VendingMachineTankDispenserEVA
 
 - type: entity
   parent: VendingMachineBoozeFlatpack

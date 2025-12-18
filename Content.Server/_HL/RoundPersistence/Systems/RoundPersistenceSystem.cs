@@ -894,7 +894,16 @@ public sealed class RoundPersistenceSystem : EntitySystem
             var stationName = MetaData(uid).EntityName;
             if (component.Missions.Count > 0 || component.ActiveMission != 0)
             {
-                SaveStationData(uid, Comp<StationDataComponent>(uid), stationName, persistence);
+                // Only save if the station has StationDataComponent; otherwise skip to avoid shutdown exceptions
+                if (TryComp<StationDataComponent>(uid, out var stationData))
+                {
+                    SaveStationData(uid, stationData, stationName, persistence);
+                }
+                else
+                {
+                    // Optional: log at debug level to avoid noisy errors during ship cleanup
+                    //_sawmill.Debug($"Skipping expedition data save for {stationName}: missing StationDataComponent.");
+                }
                 //_sawmill.Info($"Emergency save of expedition data for {stationName}");
             }
         }

@@ -876,19 +876,6 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
 
-- type: construction
-  id: HeatPump
-  name: heat-pump-name
-  description: heat-pump-description
-  graph: GasBinary
-  startNode: start
-  targetNode: heatpump
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:NoUnstackableInTile
-
 # ATMOS TRINARY
 - type: construction
   id: GasFilter

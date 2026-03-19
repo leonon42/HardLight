@@ -418,7 +418,10 @@ public sealed class PlantAnalyzerSystem : EntitySystem
                 WeedTolerance = seedData.WeedTolerance,
                 Mutations = GetMutationFlags(seedData)
             };
-
+            for(int i=0;i<ret.SeedChem.Length;i++) 
+            {            
+                ret.SeedChem[i] += seedData.Chemicals[ret.SeedChem[i]].Max;
+            }
             ret.AdvancedInfo = advancedInfo;
         }
         return ret;

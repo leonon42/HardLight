@@ -1356,7 +1356,7 @@
     Omnizine: # Don't kill me
       Min: 1
       Max: 3
-      PotencyDivisor: 33
+      PotencyDivisor: 35
     SpaceDrugs:
       Min: 1
       Max: 5

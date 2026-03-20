@@ -19,11 +19,11 @@
   chemicals:
     Nutriment:
       Min: 1
-      Max: 20
+      Max: 6
       PotencyDivisor: 20
     Flour:
       Min: 5
-      Max: 20
+      Max: 10
       PotencyDivisor: 20
 
 - type: seed
@@ -45,11 +45,11 @@
   chemicals:
     Nutriment:
       Min: 1
-      Max: 20
+      Max: 6
       PotencyDivisor: 20
     UncookedAnimalProteins:
       Min: 5
-      Max: 20
+      Max: 15
       PotencyDivisor: 20
 
 - type: seed
@@ -71,11 +71,11 @@
   chemicals:
     Nutriment:
       Min: 1
-      Max: 20
+      Max: 6
       PotencyDivisor: 20
     Oats:
       Min: 5
-      Max: 20
+      Max: 15
       PotencyDivisor: 20
 
 - type: seed
@@ -732,7 +732,7 @@
       PotencyDivisor: 25
     Allicin:
       Min: 1
-      Max: 8
+      Max: 5
       PotencyDivisor: 25
 
 - type: seed
@@ -816,7 +816,7 @@
   chemicals:
     Nutriment:
       Min: 1
-      Max: 10
+      Max: 6
       PotencyDivisor: 20
     Cornmeal:
       Min: 5
@@ -912,7 +912,7 @@
   chemicals:
     Nutriment:
       Min: 1
-      Max: 25
+      Max: 5
       PotencyDivisor: 25
 
 - type: seed
@@ -988,11 +988,11 @@
   chemicals:
     SpaceDrugs:
       Min: 1
-      Max: 15
+      Max: 11
       PotencyDivisor: 10
     Lipolicide:
       Min: 1
-      Max: 15
+      Max: 11
       PotencyDivisor: 10
     MindbreakerToxin:
       Min: 1
@@ -1008,7 +1008,7 @@
 #     PotencyDivisor: 20
     Psicodine:
       Min: 0
-      Max: 5
+      Max: 3
       PotencyDivisor: 33
 
 - type: seed
@@ -1285,7 +1285,7 @@
   chemicals:
     Pomelustine:
       Min: 5
-      Max: 30
+      Max: 15
       PotencyDivisor: 10
     Nutriment:
       Min: 1
@@ -1356,7 +1356,7 @@
     Omnizine: # Don't kill me
       Min: 1
       Max: 3
-      PotencyDivisor: 35
+      PotencyDivisor: 33
     SpaceDrugs:
       Min: 1
       Max: 5
@@ -1433,7 +1433,7 @@
     Amatoxin:
       Min: 1
       Max: 10
-      PotencyDivisor: 12
+      PotencyDivisor: 11
     Nutriment: ## yumby :)
       Min: 1
       Max: 5
@@ -1541,11 +1541,11 @@
   chemicals:
     Nutriment:
       Min: 1
-      Max: 20
+      Max: 6
       PotencyDivisor: 20
     Rice:
       Min: 5
-      Max: 20
+      Max: 15
       PotencyDivisor: 20
 
 - type: seed
@@ -1592,7 +1592,7 @@
   chemicals:
     Nutriment:
       Min: 1
-      Max: 5
+      Max: 3
       PotencyDivisor: 50
     PolypyryliumOligomers:
       Min: 1
@@ -1763,7 +1763,7 @@
     Vitamin:
       Min: 1
       Max: 4
-      PotencyDivisor: 40
+      PotencyDivisor: 33
 
 - type: seed
   id: bungo
@@ -1966,7 +1966,7 @@
     Phlogiston:
       Min: 4
       Max: 8
-      PotencyDivisor: 30
+      PotencyDivisor: 25
 
 - type: seed
   id: cherry

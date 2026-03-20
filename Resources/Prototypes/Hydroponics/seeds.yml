@@ -49,7 +49,7 @@
       PotencyDivisor: 20
     UncookedAnimalProteins:
       Min: 5
-      Max: 15
+      Max: 10
       PotencyDivisor: 20
 
 - type: seed
@@ -75,7 +75,7 @@
       PotencyDivisor: 20
     Oats:
       Min: 5
-      Max: 15
+      Max: 10
       PotencyDivisor: 20
 
 - type: seed
@@ -1545,7 +1545,7 @@
       PotencyDivisor: 20
     Rice:
       Min: 5
-      Max: 15
+      Max: 10
       PotencyDivisor: 20
 
 - type: seed

@@ -5,11 +5,14 @@
     weight: 0.5
     reagents:
     - Omnizine
+    - Nocturine
+    - Lexorin
     - Impedrezene
     - Fresium
     - HeartbreakerToxin
     - Honk
     - BuzzochloricBees
+    - Stimulants
     - Libidozenithizine
     - Lithium
   - quantity: 5
@@ -89,6 +92,7 @@
     - Ash
     - SodiumCarbonate
     - SpaceDrugs
+    - MuteToxin
     - SpaceGlue
     - JuiceBerryPoison
     - Pilk

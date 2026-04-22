@@ -35,8 +35,8 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
           Gas.Ammonia,
           Gas.Plasma,
           Gas.WaterVapor,
-          //Gas.Tritium,
-          //Gas.Frezon,
+          Gas.Tritium,
+          Gas.Frezon,
         };
         // End Frontier: List of gasses
 
@@ -90,8 +90,8 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
           Gas.Ammonia,
           Gas.Plasma,
           Gas.WaterVapor,
-          //Gas.Tritium,
-          //Gas.Frezon,
+          Gas.Tritium,
+          Gas.Frezon,
         };
         // End Frontier: List of gasses
 

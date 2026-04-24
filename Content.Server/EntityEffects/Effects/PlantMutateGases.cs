@@ -50,6 +50,11 @@ public sealed partial class PlantMutateExudeGasses : EntityEffect
         if (gasses.ContainsKey(gas))
         {
             gasses[gas] += amount;
+            if ((gas==Gas.Tritium) || (gas==Gas.Frezon))
+            {
+                 if (gasses[gas]>MaxValue)
+                    {gasses[gas]=MaxValue;}
+            }
         }
         else
         {
@@ -105,6 +110,11 @@ public sealed partial class PlantMutateConsumeGasses : EntityEffect
         if (gasses.ContainsKey(gas))
         {
             gasses[gas] += amount;
+            if ((gas==Gas.Tritium) || (gas==Gas.Frezon))
+            {
+                 if (gasses[gas]>MaxValue)
+                    {gasses[gas]=MaxValue;}
+            }
         }
         else
         {
